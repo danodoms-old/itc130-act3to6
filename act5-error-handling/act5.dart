@@ -4,7 +4,12 @@ Future<void> main() async {
   try {
     // Read user-provided file name
     print('Enter file name:');
-    String fileName = stdin.readLineSync();
+    String? fileName = stdin.readLineSync();
+
+    if (fileName == null) {
+      print('No file name provided.');
+      return;
+    }
 
     // Open and read file
     File file = File(fileName);
